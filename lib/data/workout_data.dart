@@ -16,11 +16,27 @@ class WorkoutData extends ChangeNotifier {
         reps: "10",
         sets: "3",
       )
+    ]),
+    Workout(name: "Lower Body", exercises: [
+      Exercise(
+        name: "Squat",
+        weight: "10",
+        reps: "10",
+        sets: "3",
+      )
+    ]),
+    Workout(name: "Full Body", exercises: [
+      Exercise(
+        name: "Bicep Curls",
+        weight: "10",
+        reps: "10",
+        sets: "3",
+      )
     ])
   ];
 
   // get the list of workout
-  List<Workout> getWokroutList() {
+  List<Workout> getWorkoutList() {
     return workoutList;
   }
 
