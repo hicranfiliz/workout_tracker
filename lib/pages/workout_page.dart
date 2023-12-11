@@ -12,7 +12,7 @@ class WorkoutPage extends StatefulWidget {
 }
 
 class _WorkoutPageState extends State<WorkoutPage> {
-  // checkbox was tapped:
+// checkbox was tapped:
   // we have to know which workout and exercise is.
   void onCheckBoxChanged(String workoutName, String exerciseName) {
     Provider.of<WorkoutData>(context, listen: false)
@@ -112,6 +112,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 child: const Icon(Icons.add),
               ),
               body: ListView.builder(
+                  itemCount:
+                      value.numberOfExercisesInWorkout(widget.workoutName),
                   itemBuilder: (context, index) => ExerciseTile(
                         exerciseName: value
                             .getRelevantWorkout(widget.workoutName)
