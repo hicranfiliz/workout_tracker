@@ -5,7 +5,7 @@ import 'package:workout_tracker/models/workout.dart';
 
 class HiveDatabase {
   // reference our hive box
-  final _myBox = Hive.box("workout_database1");
+  final _myBox = Hive.box("workout_database");
 
   // check if there is already data stored, if not, record the start date
   bool previousDataExists() {
@@ -38,7 +38,7 @@ class HiveDatabase {
     if (exerciseCompleted(workouts)) {
       _myBox.put("COMPLETION_STATUS_${todaysDateYYYYMMDD()}", 1);
     } else {
-      _myBox.put("COMPLETION_STTATUS_${todaysDateYYYYMMDD()}", 0);
+      _myBox.put("COMPLETION_STATUS_${todaysDateYYYYMMDD()}", 0);
     }
 
     // save into hive
@@ -51,7 +51,7 @@ class HiveDatabase {
     List<Workout> mySavedWorkouts = [];
 
     List<String> workoutName = _myBox.get("WORKOUTS");
-    final exerciseDetails = _myBox.get("EXERCISE");
+    final exerciseDetails = _myBox.get("EXERCISES");
 
     // create workout objects
     for (int i = 0; i < workoutName.length; i++) {
